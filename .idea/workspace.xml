@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="" />
+    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/leetcode/search/Easy278.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/search/Easy35.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,8 +38,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -62,34 +76,45 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630898499872</updated>
-      <workItem from="1630898504853" duration="2366000" />
+      <workItem from="1630898504853" duration="5808000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="208" y="25" key="#Project_Structure" timestamp="1630898521449">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="208" y="25" key="#Project_Structure/0.25.1440.815@0.25.1440.815" timestamp="1630898521449" />
-    <state width="1398" height="201" key="GridCell.Tab.0.bottom" timestamp="1630901214165">
+    <state width="1398" height="201" key="GridCell.Tab.0.bottom" timestamp="1630908849370">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
-    <state width="1398" height="201" key="GridCell.Tab.0.bottom/0.25.1440.815@0.25.1440.815" timestamp="1630901214165" />
-    <state width="1398" height="201" key="GridCell.Tab.0.center" timestamp="1630901214164">
+    <state width="1398" height="201" key="GridCell.Tab.0.bottom/0.25.1440.815@0.25.1440.815" timestamp="1630908849370" />
+    <state width="1398" height="201" key="GridCell.Tab.0.center" timestamp="1630908849369">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
-    <state width="1398" height="201" key="GridCell.Tab.0.center/0.25.1440.815@0.25.1440.815" timestamp="1630901214164" />
-    <state width="1398" height="201" key="GridCell.Tab.0.left" timestamp="1630901214163">
+    <state width="1398" height="201" key="GridCell.Tab.0.center/0.25.1440.815@0.25.1440.815" timestamp="1630908849369" />
+    <state width="1398" height="201" key="GridCell.Tab.0.left" timestamp="1630908849368">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
-    <state width="1398" height="201" key="GridCell.Tab.0.left/0.25.1440.815@0.25.1440.815" timestamp="1630901214163" />
-    <state width="1398" height="201" key="GridCell.Tab.0.right" timestamp="1630901214165">
+    <state width="1398" height="201" key="GridCell.Tab.0.left/0.25.1440.815@0.25.1440.815" timestamp="1630908849368" />
+    <state width="1398" height="201" key="GridCell.Tab.0.right" timestamp="1630908849369">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
-    <state width="1398" height="201" key="GridCell.Tab.0.right/0.25.1440.815@0.25.1440.815" timestamp="1630901214165" />
+    <state width="1398" height="201" key="GridCell.Tab.0.right/0.25.1440.815@0.25.1440.815" timestamp="1630908849369" />
     <state width="1398" height="249" key="GridCell.Tab.1.bottom" timestamp="1630901023386">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
@@ -106,6 +131,10 @@
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state width="1398" height="249" key="GridCell.Tab.1.right/0.25.1440.815@0.25.1440.815" timestamp="1630901023386" />
+    <state x="320" y="169" key="Vcs.Push.Dialog.v2" timestamp="1630909127586">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
+    <state x="320" y="169" key="Vcs.Push.Dialog.v2/0.25.1440.815@0.25.1440.815" timestamp="1630909127586" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
