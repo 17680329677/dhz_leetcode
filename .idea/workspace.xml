@@ -11,8 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/leetcode/search/Easy278.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/leetcode/search/Easy35.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/array/RotateArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/sort/DoublePointSort.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +41,15 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
-    <configuration name="Easy704" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="leetcode.search.Easy704" />
+    <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.search.BinarySearch" />
       <module name="dhz_leetcode" />
       <extension name="coverage">
         <pattern>
@@ -62,7 +63,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Easy704" />
+        <item itemvalue="Application.BinarySearch" />
       </list>
     </recent_temporary>
   </component>
@@ -76,7 +77,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630898499872</updated>
-      <workItem from="1630898504853" duration="5808000" />
+      <workItem from="1630898504853" duration="6823000" />
+      <workItem from="1631018306625" duration="1595000" />
     </task>
     <servers />
   </component>
@@ -93,58 +95,64 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="208" y="25" key="#Project_Structure" timestamp="1630898521449">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="208" y="25" key="#Project_Structure/0.25.1440.815@0.25.1440.815" timestamp="1630898521449" />
-    <state width="1398" height="201" key="GridCell.Tab.0.bottom" timestamp="1630908849370">
+    <state x="477" y="25" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1630915560681">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
+    <state x="477" y="25" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.815@0.25.1440.815" timestamp="1630915560681" />
+    <state width="1398" height="249" key="GridCell.Tab.0.bottom" timestamp="1630939176118">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="249" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1630939176118" />
     <state width="1398" height="201" key="GridCell.Tab.0.bottom/0.25.1440.815@0.25.1440.815" timestamp="1630908849370" />
-    <state width="1398" height="201" key="GridCell.Tab.0.center" timestamp="1630908849369">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.0.center" timestamp="1630939176117">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1630939176117" />
     <state width="1398" height="201" key="GridCell.Tab.0.center/0.25.1440.815@0.25.1440.815" timestamp="1630908849369" />
-    <state width="1398" height="201" key="GridCell.Tab.0.left" timestamp="1630908849368">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.0.left" timestamp="1630939176116">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1630939176116" />
     <state width="1398" height="201" key="GridCell.Tab.0.left/0.25.1440.815@0.25.1440.815" timestamp="1630908849368" />
-    <state width="1398" height="201" key="GridCell.Tab.0.right" timestamp="1630908849369">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.0.right" timestamp="1630939176118">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1630939176118" />
     <state width="1398" height="201" key="GridCell.Tab.0.right/0.25.1440.815@0.25.1440.815" timestamp="1630908849369" />
-    <state width="1398" height="249" key="GridCell.Tab.1.bottom" timestamp="1630901023386">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.1.bottom" timestamp="1630939176120">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1630939176120" />
     <state width="1398" height="249" key="GridCell.Tab.1.bottom/0.25.1440.815@0.25.1440.815" timestamp="1630901023386" />
-    <state width="1398" height="249" key="GridCell.Tab.1.center" timestamp="1630901023385">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.1.center" timestamp="1630939176119">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1630939176119" />
     <state width="1398" height="249" key="GridCell.Tab.1.center/0.25.1440.815@0.25.1440.815" timestamp="1630901023385" />
-    <state width="1398" height="249" key="GridCell.Tab.1.left" timestamp="1630901023385">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.1.left" timestamp="1630939176119">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1630939176119" />
     <state width="1398" height="249" key="GridCell.Tab.1.left/0.25.1440.815@0.25.1440.815" timestamp="1630901023385" />
-    <state width="1398" height="249" key="GridCell.Tab.1.right" timestamp="1630901023386">
-      <screen x="0" y="25" width="1440" height="815" />
+    <state width="1398" height="249" key="GridCell.Tab.1.right" timestamp="1630939176119">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="249" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1630939176119" />
     <state width="1398" height="249" key="GridCell.Tab.1.right/0.25.1440.815@0.25.1440.815" timestamp="1630901023386" />
     <state x="320" y="169" key="Vcs.Push.Dialog.v2" timestamp="1630909127586">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="320" y="169" key="Vcs.Push.Dialog.v2/0.25.1440.815@0.25.1440.815" timestamp="1630909127586" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/leetcode/search/Easy704.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="126" y="69" key="new project wizard" timestamp="1630939172637">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="126" y="69" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1630939172637" />
   </component>
 </project>
