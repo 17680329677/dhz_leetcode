@@ -11,8 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/leetcode/array/RotateArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/leetcode/sort/DoublePointSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/array/ZeroMove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/leetcode/sum/TypeSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/dhz_leetcode/leetcode/search/Easy704.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TypeSum">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="leetcode.search.BinarySearch" />
       <module name="dhz_leetcode" />
@@ -61,8 +62,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TypeSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.sum.TypeSum" />
+      <module name="dhz_leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.sum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZeroMove" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="leetcode.array.ZeroMove" />
+      <module name="dhz_leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="leetcode.array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TypeSum" />
+        <item itemvalue="Application.ZeroMove" />
         <item itemvalue="Application.BinarySearch" />
       </list>
     </recent_temporary>
@@ -78,7 +107,8 @@
       <option name="presentableId" value="Default" />
       <updated>1630898499872</updated>
       <workItem from="1630898504853" duration="6823000" />
-      <workItem from="1631018306625" duration="1595000" />
+      <workItem from="1631018306625" duration="3793000" />
+      <workItem from="1631092262804" duration="1691000" />
     </task>
     <servers />
   </component>
@@ -106,45 +136,45 @@
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="477" y="25" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.815@0.25.1440.815" timestamp="1630915560681" />
-    <state width="1398" height="249" key="GridCell.Tab.0.bottom" timestamp="1630939176118">
+    <state width="1398" height="293" key="GridCell.Tab.0.bottom" timestamp="1631108256801">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1630939176118" />
+    <state width="1398" height="293" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1631108256801" />
     <state width="1398" height="201" key="GridCell.Tab.0.bottom/0.25.1440.815@0.25.1440.815" timestamp="1630908849370" />
-    <state width="1398" height="249" key="GridCell.Tab.0.center" timestamp="1630939176117">
+    <state width="1398" height="293" key="GridCell.Tab.0.center" timestamp="1631108256798">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1630939176117" />
+    <state width="1398" height="293" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1631108256798" />
     <state width="1398" height="201" key="GridCell.Tab.0.center/0.25.1440.815@0.25.1440.815" timestamp="1630908849369" />
-    <state width="1398" height="249" key="GridCell.Tab.0.left" timestamp="1630939176116">
+    <state width="1398" height="293" key="GridCell.Tab.0.left" timestamp="1631108256797">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1630939176116" />
+    <state width="1398" height="293" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1631108256797" />
     <state width="1398" height="201" key="GridCell.Tab.0.left/0.25.1440.815@0.25.1440.815" timestamp="1630908849368" />
-    <state width="1398" height="249" key="GridCell.Tab.0.right" timestamp="1630939176118">
+    <state width="1398" height="293" key="GridCell.Tab.0.right" timestamp="1631108256800">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1630939176118" />
+    <state width="1398" height="293" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1631108256800" />
     <state width="1398" height="201" key="GridCell.Tab.0.right/0.25.1440.815@0.25.1440.815" timestamp="1630908849369" />
-    <state width="1398" height="249" key="GridCell.Tab.1.bottom" timestamp="1630939176120">
+    <state width="1398" height="293" key="GridCell.Tab.1.bottom" timestamp="1631108257062">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1630939176120" />
+    <state width="1398" height="293" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1631108257062" />
     <state width="1398" height="249" key="GridCell.Tab.1.bottom/0.25.1440.815@0.25.1440.815" timestamp="1630901023386" />
-    <state width="1398" height="249" key="GridCell.Tab.1.center" timestamp="1630939176119">
+    <state width="1398" height="293" key="GridCell.Tab.1.center" timestamp="1631108257061">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1630939176119" />
+    <state width="1398" height="293" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1631108257061" />
     <state width="1398" height="249" key="GridCell.Tab.1.center/0.25.1440.815@0.25.1440.815" timestamp="1630901023385" />
-    <state width="1398" height="249" key="GridCell.Tab.1.left" timestamp="1630939176119">
+    <state width="1398" height="293" key="GridCell.Tab.1.left" timestamp="1631108257060">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1630939176119" />
+    <state width="1398" height="293" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1631108257060" />
     <state width="1398" height="249" key="GridCell.Tab.1.left/0.25.1440.815@0.25.1440.815" timestamp="1630901023385" />
-    <state width="1398" height="249" key="GridCell.Tab.1.right" timestamp="1630939176119">
+    <state width="1398" height="293" key="GridCell.Tab.1.right" timestamp="1631108257061">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="249" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1630939176119" />
+    <state width="1398" height="293" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1631108257061" />
     <state width="1398" height="249" key="GridCell.Tab.1.right/0.25.1440.815@0.25.1440.815" timestamp="1630901023386" />
     <state x="320" y="169" key="Vcs.Push.Dialog.v2" timestamp="1630909127586">
       <screen x="0" y="25" width="1440" height="815" />
@@ -154,5 +184,21 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="126" y="69" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1630939172637" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/array/ZeroMove.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/leetcode/sum/TypeSum.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
