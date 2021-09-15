@@ -46,6 +46,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="leetcode.dp" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.TypeSum">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="leetcode.search.BinarySearch" />
@@ -106,7 +111,7 @@
       <updated>1630898499872</updated>
       <workItem from="1630898504853" duration="6823000" />
       <workItem from="1631018306625" duration="3793000" />
-      <workItem from="1631092262804" duration="13121000" />
+      <workItem from="1631092262804" duration="15986000" />
     </task>
     <servers />
   </component>
@@ -134,6 +139,10 @@
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="477" y="25" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.815@0.25.1440.815" timestamp="1630915560681" />
+    <state x="458" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1631697750610">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1631697750609" />
     <state width="1398" height="293" key="GridCell.Tab.0.bottom" timestamp="1631109410277">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

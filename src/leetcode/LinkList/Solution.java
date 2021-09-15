@@ -86,4 +86,53 @@ public class Solution {
         ListNode ans = dummy.next;
         return ans;
     }
+
+    /**
+     * 合并两个有序链表
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null && l2 == null) {
+            return null;
+        }
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+
+        ListNode head = new ListNode(-1);
+        ListNode cur = head;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            } else {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = l1 == null ? l2 : l1;
+        return head.next;
+    }
+
+    /**
+     * 链表翻转
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+
+        while (cur != null) {
+            ListNode tempNext = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = tempNext;
+        }
+        return prev;
+    }
 }
