@@ -10,7 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="" />
+    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/leetcode/dp/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/dp/Solution.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +111,7 @@
       <updated>1630898499872</updated>
       <workItem from="1630898504853" duration="6823000" />
       <workItem from="1631018306625" duration="3793000" />
-      <workItem from="1631092262804" duration="17496000" />
+      <workItem from="1631092262804" duration="21290000" />
     </task>
     <servers />
   </component>
@@ -141,6 +143,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1631697750609" />
+    <state x="467" y="313" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1631885683334">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="467" y="313" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1631885683334" />
     <state width="1398" height="293" key="GridCell.Tab.0.bottom" timestamp="1631109410277">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
