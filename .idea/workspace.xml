@@ -10,7 +10,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="" />
+    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/leetcode/sum/TypeSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/sum/TypeSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/leetcode/weiyunsuan/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/leetcode/weiyunsuan/Solution.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +112,7 @@
       <updated>1630898499872</updated>
       <workItem from="1630898504853" duration="6823000" />
       <workItem from="1631018306625" duration="3793000" />
-      <workItem from="1631092262804" duration="24092000" />
+      <workItem from="1631092262804" duration="26486000" />
     </task>
     <servers />
   </component>
