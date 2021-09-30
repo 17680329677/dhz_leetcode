@@ -206,4 +206,34 @@ public class Solution {
         }
         return minTotal;
     }
+
+    /**
+     * 给定一个区间的集合，找到需要移除区间的最小数量，使剩余区间互不重叠。
+     * 思路：我们可以先将所有的 nn 个区间按照左端点（或者右端点）从小到大进行排序，随后使用动态规划的方法求出区间数量的最大值。设排完序后这 nn 个区间的左右端点分别为 l_0, \cdots, l_{n-1}l
+     * @param intervals
+     * @return
+     */
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals.length == 0) {
+            return 0;
+        }
+
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            public int compare(int[] interval1, int[] interval2) {
+                return interval1[0] - interval2[0];
+            }
+        });
+
+        int n = intervals.length;
+        int[] f = new int[n];
+        Arrays.fill(f, 1);
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (intervals[j][1] <= intervals[i][0]) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+        }
+        return n - Arrays.stream(f).max().getAsInt();
+    }
 }
