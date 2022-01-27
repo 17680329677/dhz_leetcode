@@ -1,5 +1,7 @@
 package leetcode.LinkList;
 
+import struct.ListNode;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
