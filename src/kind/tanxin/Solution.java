@@ -1,5 +1,6 @@
 package kind.tanxin;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import kind.sort.learn.QuickSort;
 
 import java.util.Arrays;
@@ -127,5 +128,119 @@ public class Solution {
         }
 
         return list.toArray(new int[list.size()][2]);
+    }
+
+    /**
+     * 121. 买卖股票的最佳时机
+     * 思路：记录最低位的价格，一次遍历不断更新最低点
+     * @param prices
+     * @return
+     */
+    public int maxProfit(int[] prices) {
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < minPrice)
+                minPrice = prices[i];
+            if (prices[i] - minPrice > maxProfit)
+                maxProfit = prices[i] - minPrice;
+        }
+        return maxProfit;
+    }
+
+    /**
+     * 122. 买卖股票的最佳时机2 (可以多次买卖)
+     * 思路：对于 [a, b, c, d]，如果有 a <= b <= c <= d ，那么最大收益为 d - a。
+     * 而 d - a = (d - c) + (c - b) + (b - a)
+     * 因此当访问到一个 prices[i] 且 prices[i] - prices[i-1] > 0，那么就把 prices[i] - prices[i-1] 添加到收益中。
+     * @param prices
+     * @return
+     */
+    public int maxProfit2(int[] prices) {
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                profit += (prices[i] - prices[i - 1]);
+            }
+        }
+        return profit;
+    }
+
+    /**
+     * 605. 种花问题：0为没有花，1为有花，不能有连续两朵及以上的化种在一起，是否可以插入n朵花？
+     * 思路：
+     * 【1】当遍历到index遇到1时，说明这个位置有花，那必然从index+2的位置才有可能种花，因此当碰到1时直接跳过下一格。
+     * 【2】当遍历到index遇到0时，由于每次碰到1都是跳两格，因此前一格必定是0，此时只需要判断下一格是不是1即可得出index这一格能不能种花，如果能种则令n减一，然后这个位置就按照遇到1时处理，即跳两格；如果index的后一格是1，说明这个位置不能种花且之后两格也不可能种花（参照【1】），直接跳过3格。
+     * @param flowerbed
+     * @param n
+     * @return
+     */
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        // 如果花种完了，或者花床检查完了，都停止遍历
+        for (int i = 0, len = flowerbed.length; i < len && n > 0;) {
+            if (flowerbed[i] == 1) {
+                //即如果，当前i位置已经种植了话，那么下一个可以种花的位置是 i+2
+                i += 2;
+            } else if (i == flowerbed.length - 1 || flowerbed[i + 1] == 0) {
+                //这里很关键
+                //如果是最后一个位置了，那么肯定能够种植（i==flowerbed.length-1)
+                //如果不是，则还需要确保 可种花的位置(i+2)紧邻其后的(i+2+1)的位置没有种植（flowerbed[i+1]==0)
+                //只有这样才可以种植
+                n--;
+                //同时找出下一个可以种植的位置
+                i += 2;
+            } else {
+                //这种情况是flowerbed[i+2+1]=1，所以下次循环就从这里重新开始判断其后可种植的位置
+                i += 3;
+            }
+        }
+        return n <= 0;
+    }
+
+    /**
+     * 605. 种花问题：0为没有花，1为有花，不能有连续两朵及以上的化种在一起，是否可以插入n朵花？
+     * 思路：数学归纳法 分区统计连续0区间即可，连续n个0可以种（n - 1） / 2
+     * 在开头和结尾分别补0，可以避免数组长度为0，1，2的特殊情况
+     * @param flowerbed
+     * @param n
+     * @return
+     */
+    public boolean canPlaceFlowers2(int[] flowerbed, int n) {
+        if (flowerbed == null || flowerbed.length == 0)
+            return n == 0;
+        int continueZero = 1; // 数组首位补零
+        int canPlace = 0;
+        for (int bed : flowerbed) {
+            if (bed == 0) {
+                continueZero++;
+            } else {
+                canPlace += (continueZero - 1) / 2;
+                continueZero = 0;
+                if (canPlace >= n)
+                    return true;
+            }
+        }
+        // 尾部补0，同时防止了continueZero未清零的情况和尾部连续零导致的归纳公式不一致情况
+        continueZero++;
+        canPlace += (continueZero - 1) / 2;
+        return canPlace >= n;
+    }
+
+    /**
+     * 392. 判断字符串s是否为字符串t的子序列
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isSubsequence(String s, String t) {
+        int sLen = s.length(), tLen = t.length();
+        int i = 0, j = 0;
+        while (i < sLen && j < tLen) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+        return i == sLen;
     }
 }

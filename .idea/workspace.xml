@@ -11,9 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kind/sort/learn/ShellSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kind/tanxin/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kind/sort/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kind/sort/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kind/tanxin/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kind/tanxin/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +154,7 @@
       <workItem from="1631018306625" duration="3793000" />
       <workItem from="1631092262804" duration="37125000" />
       <workItem from="1637221696612" duration="308000" />
-      <workItem from="1643198343730" duration="25010000" />
+      <workItem from="1643198343730" duration="28398000" />
     </task>
     <servers />
   </component>
