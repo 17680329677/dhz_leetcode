@@ -3,9 +3,7 @@ package kind.tanxin;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import kind.sort.learn.QuickSort;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Solution {
 
@@ -242,5 +240,70 @@ public class Solution {
             j++;
         }
         return i == sLen;
+    }
+
+    /**
+     * 665. 非递减数列
+     * 思路：首先只能存在一组非递减的组合
+     * @param nums
+     * @return
+     */
+    public boolean checkPossibility(int[] nums) {
+        int n = nums.length;
+        int count = 0;
+        for (int i = 0; i < n -1; i++) {
+            int x = nums[i], y = nums[i + 1];
+            if (x > y) {
+                count++;
+                if (count > 1) {
+                    return false;
+                }
+                if (i > 0 && y < nums[i - 1]) {
+                    nums[i + 1] = x;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 53. 最大子数组之和（连续子数组）
+     * @param nums
+     * @return
+     */
+    public int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int preSum = nums[0];
+        int maxSum = preSum;
+        for (int i = 1; i < nums.length; i++) {
+            preSum = preSum > 0 ? preSum + nums[i] : nums[i];
+            maxSum = Math.max(preSum, maxSum);
+        }
+        return maxSum;
+    }
+
+    /**
+     * 763. 划分字母区间：字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
+     * @param s
+     * @return
+     */
+    public List<Integer> partitionLabels(String s) {
+        int[] last = new int[26];
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            last[s.charAt(i) - 'a'] = i;
+        }
+        List<Integer> partition = new ArrayList<Integer>();
+        int start = 0, end = 0;
+        for (int i = 0; i < length; i++) {
+            end = Math.max(end, last[s.charAt(i) - 'a']);
+            if (i == end) {
+                partition.add(end - start + 1);
+                start = end + 1;
+            }
+        }
+        return partition;
     }
 }
