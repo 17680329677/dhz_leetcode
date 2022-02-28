@@ -10,9 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/kind/tanxin/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kind/tanxin/Solution.java" afterDir="false" />
-    </list>
+    <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,22 +61,9 @@
       <recent name="leetcode.dp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ShellSort">
+  <component name="RunManager" selected="Application.Solution">
     <configuration name="HeapSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kind.sort.learn.HeapSort" />
-      <module name="dhz_leetcode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kind.sort.learn.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kind.sort.learn.InsertSort" />
       <module name="dhz_leetcode" />
       <extension name="coverage">
         <pattern>
@@ -129,13 +114,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kind.binary_search.Solution" />
+      <module name="dhz_leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kind.binary_search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution" />
         <item itemvalue="Application.ShellSort" />
         <item itemvalue="Application.HeapSort" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.QuickSort" />
-        <item itemvalue="Application.InsertSort" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +155,7 @@
       <workItem from="1643198343730" duration="29271000" />
       <workItem from="1645535816452" duration="95000" />
       <workItem from="1645535937642" duration="81000" />
-      <workItem from="1645536041774" duration="890000" />
+      <workItem from="1645536041774" duration="2188000" />
     </task>
     <servers />
   </component>
@@ -192,6 +190,11 @@
           <url>file://$PROJECT_DIR$/src/leetcode/dfsAndbfs/Solution.java</url>
           <line>183</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/kind/binary_search/Solution.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
