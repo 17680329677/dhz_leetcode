@@ -76,4 +76,81 @@ public class Solution {
         Solution solution = new Solution();
         solution.mySqrt(4);
     }
+
+    /**
+     * 278.找出第一个错误版本
+     * 思路：简单二分法即可
+     * @param n
+     * @return
+     */
+    public int firstBadVersion(int n) {
+        if (n == 1)
+            return 1;
+        int low = 1, high = n;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (isBadVersion(mid)) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+
+    private boolean isBadVersion(int n) {
+        return true;
+    }
+
+
+    /**
+     * 153.寻找旋转（旋转n次就是循环n次）数组中的最小值（数组原本按照升续排列）
+     * @param nums
+     * @return
+     */
+    public int findMin(int[] nums) {
+        if (nums.length == 1)
+            return nums[0];
+        int low = 0, high = nums.length - 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] < nums[high]) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return nums[low];
+    }
+
+    /**
+     * 34.
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] searchRange(int[] nums, int target) {
+        int leftIndex = binarySearch(nums, target, true);
+        int rightIndex = binarySearch(nums, target, false) - 1;
+        if (leftIndex <= rightIndex && rightIndex < nums.length &&
+                nums[leftIndex] == target && nums[rightIndex] == target) {
+            return new int[] {leftIndex, rightIndex};
+        }
+        return new int[] {-1, -1};
+    }
+
+    private int binarySearch(int[] nums, int target, boolean lower) {
+        int low = 0, high = nums.length - 1;
+        int ans = nums.length;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] > target || (lower && nums[mid] >= target)) {
+                high = mid - 1;
+                ans = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return ans;
+    }
 }
