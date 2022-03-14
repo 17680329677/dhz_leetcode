@@ -402,10 +402,157 @@ public class Solution {
         return root;
     }
 
+    /**
+     * 1008. 前序遍历构造二叉搜索树
+     * @param preorder
+     * @return
+     */
+    public TreeNode bstFromPreorder(int[] preorder) {
+        if (preorder == null)
+            return null;
+        else
+            return bstBuild(preorder, 0, preorder.length - 1);
+    }
+
+    private TreeNode bstBuild(int[] preorder, int start, int end) {
+        if (start <= end) {
+            TreeNode root = new TreeNode(preorder[start]);
+            int index = start + 1;
+            while (index <= end) {
+                if (preorder[index] < preorder[start]) {
+                    index++;
+                } else {
+                    break;
+                }
+            }
+            root.left = bstBuild(preorder, start + 1, index - 1);
+            root.right = bstBuild(preorder, index, end);
+            return root;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 144. 二叉树的前序遍历-递归
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        preOrder(root, res);
+        return res;
+    }
+
+    private void preOrder(TreeNode root, List<Integer> res) {
+        if (root == null)
+            return;
+        res.add(root.val);
+        preOrder(root.left, res);
+        preOrder(root.right, res);
+    }
+
+    /**
+     * 144. 二叉树的前序遍历-迭代
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode node = root;
+        while (!stack.isEmpty() || node != null) {
+            while (node != null) {
+                res.add(node.val);
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            node = node.right;
+        }
+        return res;
+    }
+
+    /**
+     * 94.二叉树的中序遍历-递归
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        inOrder(root, res);
+        return res;
+    }
+
+    private void inOrder(TreeNode root, List<Integer> res) {
+        if (root == null)
+            return;
+        inOrder(root.left, res);
+        res.add(root.val);
+        inOrder(root.right, res);
+    }
+
+    /**
+     * 94.二叉树的中序遍历-迭代
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal2(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            res.add(root.val);
+            root = root.right;
+        }
+        return res;
+    }
+
+    /**
+     * 145. 二叉树的后续遍历-迭代
+     * @param root
+     * @return
+     */
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new LinkedList<>();
+        if (root == null)
+            return res;
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode prev = null;
+        while (!stack.isEmpty() || root != null) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            if (root.right == null || root.right == prev) {
+                res.add(root.val);
+                prev = root;
+                root = null;
+            } else {
+                stack.push(root);
+                root = root.right;
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         int[] inorder = new int[] {9,3,15,20,7};
         int[] postorder = new int[] {9,15,7,20,3};
-        solution.buildTree2(inorder, postorder);
+        int[] preoder = new int[] {8,5,1,7,10,12};
+        //solution.buildTree2(inorder, postorder);
+        solution.bstFromPreorder(preoder);
     }
 }
