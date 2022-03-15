@@ -158,7 +158,7 @@
       <workItem from="1645535816452" duration="95000" />
       <workItem from="1645535937642" duration="81000" />
       <workItem from="1645536041774" duration="29453000" />
-      <workItem from="1647225830107" duration="3844000" />
+      <workItem from="1647225830107" duration="6348000" />
     </task>
     <servers />
   </component>
@@ -201,8 +201,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/kind/dfs/Solution.java</url>
-          <line>547</line>
-          <option name="timeStamp" value="6" />
+          <line>629</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

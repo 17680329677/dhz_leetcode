@@ -1,5 +1,6 @@
 package kind.dfs;
 
+import struct.Node;
 import struct.TreeNode;
 
 import java.util.*;
@@ -547,12 +548,86 @@ public class Solution {
         return res;
     }
 
+    /**
+     * 589. N叉树的前序遍历-递归
+     * @param root
+     * @return
+     */
+    public List<Integer> preorder(Node root) {
+        List<Integer> res = new ArrayList<>();
+        nPreOder(root, res);
+        return res;
+    }
+
+    private void nPreOder(Node root, List<Integer> res) {
+        if (root == null)
+            return;
+        res.add(root.val);
+        for (Node node : root.children) {
+            nPreOder(node, res);
+        }
+    }
+
+    /**
+     * 589. N叉树的前序遍历-迭代
+     * @param root
+     * @return
+     */
+    public List<Integer> preorder2(Node root) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (root == null) {
+            return res;
+        }
+        Map<Node, Integer> map = new HashMap<Node, Integer>();
+        Deque<Node> stack = new ArrayDeque<Node>();
+        Node node = root;
+        while (!stack.isEmpty() || node != null) {
+            while (node != null) {
+                res.add(node.val);
+                stack.push(node);
+                List<Node> children = node.children;
+                if (children != null && children.size() > 0) {
+                    map.put(node, 0);
+                    node = children.get(0);
+                } else {
+                    node = null;
+                }
+            }
+            node = stack.peek();
+            int index = map.getOrDefault(node, -1) + 1;
+            List<Node> children = node.children;
+            if (children != null && children.size() > index) {
+                map.put(node, index);
+                node = children.get(index);
+            } else {
+                stack.pop();
+                map.remove(node);
+                node = null;
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] inorder = new int[] {9,3,15,20,7};
-        int[] postorder = new int[] {9,15,7,20,3};
-        int[] preoder = new int[] {8,5,1,7,10,12};
-        //solution.buildTree2(inorder, postorder);
-        solution.bstFromPreorder(preoder);
+
+        Node child_2_0 = new Node(5);
+        Node child_2_1 = new Node(6);
+        List<Node> child_2 = new ArrayList<>();
+
+        child_2.add(child_2_0);
+        child_2.add(child_2_1);
+
+        Node child_1_1 = new Node(2);
+        Node child_1_2 = new Node(4);
+        Node child_1_0 = new Node(3, child_2);
+        List<Node> child_1 = new ArrayList<>();
+        child_1.add(child_1_0);
+        child_1.add(child_1_1);
+        child_1.add(child_1_2);
+        Node root = new Node(1, child_1);
+
+        solution.preorder2(root);
+
     }
 }
