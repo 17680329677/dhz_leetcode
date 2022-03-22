@@ -608,6 +608,201 @@ public class Solution {
         return res;
     }
 
+    /**
+     * 590. n叉树的后序遍历-递归
+     * @param root
+     * @return
+     */
+    public List<Integer> postorder(Node root) {
+        List<Integer> res = new ArrayList<>();
+        nPostOrder(root, res);
+        return res;
+    }
+
+    private void nPostOrder(Node node, List<Integer> res) {
+        if (node == null)
+            return;
+        for (Node child : node.children) {
+            nPostOrder(child, res);
+        }
+        res.add(node.val);
+    }
+
+    /**
+     * 590. n叉树的后序遍历-迭代
+     * @param root
+     * @return
+     */
+    public List<Integer> postorder2(Node root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Map<Node, Integer> indexMap = new HashMap<>();
+        Deque<Node> stack = new LinkedList<>();
+        Node node = root;
+        while (!stack.isEmpty() || node != null) {
+            while (node != null) {
+                stack.push(node);
+                List<Node> children = node.children;
+                if (children != null && children.size() > 0) {
+                    indexMap.put(node, 0);
+                    node = children.get(0);
+                } else {
+                    node = null;
+                }
+            }
+            node = stack.peek();
+            int index = indexMap.getOrDefault(node, -1) + 1;
+            List<Node> children = node.children;
+            if (children != null && children.size() > index) {
+                indexMap.put(node, index);
+                node = children.get(index);
+            } else {
+                res.add(node.val);
+                stack.pop();
+                indexMap.remove(node);
+                node = null;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 323. 无向连通中连通分量的数目-深度优先遍历
+     * @param n
+     * @param edges
+     * @return
+     */
+    public int countComponents(int n, int[][] edges) {
+        // 1. 构建图
+        List<Integer>[] adj = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        // 2. 无向图，添加双向索引
+        for (int[] edge : edges) {
+            adj[edge[0]].add(edge[1]);
+            adj[edge[1]].add(edge[0]);
+        }
+        // 2. 开始深度遍历
+        int count = 0;
+        boolean[] visited = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                dfs323(adj, i, visited);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private void dfs323(List<Integer>[] adj, int u, boolean[] visited) {
+        visited[u] = true;
+        List<Integer> successors = adj[u];
+        for (int successor : successors) {
+            if (!visited[successor]) {
+                dfs323(adj, successor, visited);
+            }
+        }
+    }
+
+    /**
+     * 684.冗余连接：请找出一条可以删去的边，删除后可使得剩余部分是一个有着 n 个节点的树。
+     * 如果有多个答案，则返回数组 edges 中最后出现的边。
+     * @param edges
+     * @return
+     */
+    public int[] findRedundantConnection(int[][] edges) {
+        Map<Integer, List<Integer>> graph = new HashMap<>();    // 图
+        Set<Integer> visited = new HashSet<>();     // 记录访问过的节点
+
+        // 遍历每条边
+        for (int[] edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            if (graph.containsKey(u) && graph.containsKey(v)) {
+                visited.clear();
+                if (hasCircleDFS(graph, visited, u, v)) {
+                    return edge;
+                }
+            }
+            addEdge(graph,u, v);
+            addEdge(graph,v, u);
+        }
+        return null;
+    }
+
+    /**
+     * 采用深度优先遍历，寻找从源节点到目的节点是否存在路径，即环路
+     * @param graph
+     * @param visited
+     * @param source
+     * @param target
+     * @return
+     */
+    private boolean hasCircleDFS(Map<Integer, List<Integer>> graph, Set<Integer> visited, int source, int target) {
+        if (source == target)
+            return true;
+        visited.add(source);
+        for (int adj : graph.get(source)) {
+            if (!visited.contains(adj)) {
+                if (hasCircleDFS(graph, visited, adj, target)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private void addEdge(Map<Integer, List<Integer>> graph, int u, int v) {
+        if (graph.containsKey(u)) {
+            graph.get(u).add(v);
+            return;
+        }
+        List<Integer> successors = new ArrayList<>();
+        successors.add(v);
+        graph.put(u, successors);
+    }
+
+    /**
+     * 802. 找到最终的安全状态-对于一个起始节点，如果从该节点出发，
+     * 无论每一步选择沿哪条有向边行走，最后必然在有限步内到达终点，则将该起始节点称作是安全的。
+     * @param graph
+     * @return
+     */
+    public List<Integer> eventualSafeNodes(int[][] graph) {
+        Boolean[] visited = new Boolean[graph.length];
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < graph.length; i++) {
+            if (isNotSafeDFS(visited, graph, i)) {
+                continue;
+            }
+            res.add(i);
+        }
+        return res;
+    }
+
+    /**
+     * 深度搜索，看是否有环路
+     * @param visited
+     * @param graph
+     * @param u
+     * @return
+     */
+    private boolean isNotSafeDFS(Boolean[] visited, int[][] graph, int u) {
+        if (visited[u] != null)
+            return visited[u];
+        visited[u] = true;
+        for (int successor : graph[u]) {
+            if (isNotSafeDFS(visited, graph, successor)) {
+                return true;
+            }
+        }
+        visited[u] = false;
+        return false;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
 
