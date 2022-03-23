@@ -2,7 +2,9 @@ package hot;
 
 import struct.ListNode;
 
+import java.util.Deque;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 public class Solution1 {
@@ -64,24 +66,6 @@ public class Solution1 {
         }
     }
 
-    /**
-     * 217.存在重复元素
-     * 思路1：利用set性质
-     * 思路2：排序后相邻元素比较
-     * 思路3：return Arrays.stream(nums).distinct().count() < nums.length;
-     * @param nums
-     * @return
-     */
-    public boolean containsDuplicate(int[] nums) {
-        Set<Integer> set = new HashSet();
-        for (int num : nums) {
-            if (!set.add(num)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public int getKthElement(int[] nums1, int[] nums2, int k) {
         /* 主要思路：要找到第 k (k>1) 小的元素，那么就取 pivot1 = nums1[k/2-1] 和 pivot2 = nums2[k/2-1] 进行比较
          * 这里的 "/" 表示整除
@@ -123,6 +107,150 @@ public class Solution1 {
                 index2 = newIndex2 + 1;
             }
         }
+    }
+
+    /**
+     * 217.存在重复元素
+     * 思路1：利用set性质
+     * 思路2：排序后相邻元素比较
+     * 思路3：return Arrays.stream(nums).distinct().count() < nums.length;
+     * @param nums
+     * @return
+     */
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 剑指offer 09.用两个栈实现队列
+     */
+    class CQueue {
+
+        private Deque<Integer> stack1;
+        private Deque<Integer> stack2;
+
+        public CQueue() {
+            stack1 = new LinkedList<>();
+            stack2 = new LinkedList<>();
+        }
+
+        public void appendTail(int value) {
+            stack1.push(value);
+        }
+
+        public int deleteHead() {
+            if (stack2.isEmpty()) {
+                while (!stack1.isEmpty()) {
+                    stack2.push(stack1.pop());
+                }
+            }
+            if (stack2.isEmpty()) {
+                return -1;
+            } else {
+                return stack2.pop();
+            }
+        }
+    }
+
+    /**
+     * 14.最长公共前缀
+     * @param strs
+     * @return
+     */
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return "";
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            prefix = longestCommonPrefix(prefix, strs[i]);
+            if (prefix.length() == 0)
+                break;
+        }
+        return prefix;
+    }
+
+    private String longestCommonPrefix(String str1, String str2) {
+        int len = Math.min(str1.length(), str2.length());
+        int index = 0;
+        while (index < len && str1.charAt(index) == str2.charAt(index)) {
+            index++;
+        }
+        return str1.substring(0, index);
+    }
+
+    /**
+     * 14.最长公共前缀-纵向遍历
+     * @param strs
+     * @return
+     */
+    public String longestCommonPrefix2(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return "";
+        int len = strs[0].length();
+        int count = strs.length;
+        for (int i = 0; i < len; i++) {
+            char target = strs[0].charAt(i);
+            for (int j = 1; j < count; j++) {
+                if (i == strs[j].length() || strs[j].charAt(i) != target) {
+                    return strs[0].substring(0, i);
+                }
+            }
+        }
+        return strs[0];
+    }
+
+    /**
+     * 5. 最长回文子串
+     * @param s
+     * @return
+     */
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+        int maxLen = 1;
+        int begin = 0;
+        boolean[][] dp = new boolean[len][len];
+        // 初始化：所有长度为 1 的子串都是回文串
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+
+        char[] charArray = s.toCharArray();
+        // 递推开始
+        // 先枚举子串长度
+        for (int L = 2; L <= len; L++) {
+            // 枚举左边界，左边界的上限设置可以宽松一些
+            for (int i = 0; i < len; i++) {
+                // 由 L 和 i 可以确定右边界，即 j - i + 1 = L 得
+                int j = L + i - 1;
+                if (j >= len) {
+                    break;
+                }
+                if (charArray[i] != charArray[j]) {
+                    dp[i][j] = false;
+                } else {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+
+                if (dp[i][j] && j - i + 1 > maxLen) {
+                    maxLen = j - i + 1;
+                    begin = i
+                }
+            }
+        }
+        return s.substring(begin, begin + maxLen);
     }
 
     public static void main(String[] args) {

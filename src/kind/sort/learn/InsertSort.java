@@ -1,5 +1,8 @@
 package kind.sort.learn;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class InsertSort {
 
     /**
@@ -24,10 +27,7 @@ public class InsertSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[] {2, 1, 6, 4, 3, 5};
-        int[] res = InsertSort.insertionSort(arr);
-        for (int i : res) {
-            System.out.println(i);
-        }
+        String s = "123".substring(0, 0);
+        System.out.println(s);
     }
 }
