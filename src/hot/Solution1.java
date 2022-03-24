@@ -2,10 +2,7 @@ package hot;
 
 import struct.ListNode;
 
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 public class Solution1 {
 
@@ -246,17 +243,132 @@ public class Solution1 {
 
                 if (dp[i][j] && j - i + 1 > maxLen) {
                     maxLen = j - i + 1;
-                    begin = i
+                    begin = i;
                 }
             }
         }
         return s.substring(begin, begin + maxLen);
     }
 
+    /**
+     * 42.接雨水：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+     * 方法一：动态规划
+     * @param height
+     * @return
+     */
+    public int trap(int[] height) {
+        int len = height.length;
+        if (len < 3) {
+            return 0;
+        }
+        int[] leftMax = new int[len];
+        leftMax[0] = height[0];
+        for (int i = 1; i < len; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i]);
+        }
+        int[] rightMax = new int[len];
+        rightMax[len - 1] = height[len - 1];
+        for (int j = len - 2; j >= 0; j--) {
+            rightMax[j] = Math.max(rightMax[j + 1], height[j]);
+        }
+
+        int ans = 0;
+        for (int index = 0; index < len; index++) {
+            int cur = Math.min(leftMax[index], rightMax[index]) - height[index];
+            ans += cur;
+        }
+        return ans;
+    }
+
+    /**
+     * 42.接雨水：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+     * 方法一：单调递减栈
+     * @param height
+     * @return
+     */
+    public int trap2(int[] height) {
+        Stack<Integer> stack = new Stack<>();
+        int i = 0, ans = 0;
+        while (i < height.length) {
+            while (!stack.empty() && height[i] > height[stack.peek()]) {
+                int top = stack.pop();
+                if (stack.empty()) break;
+                int distance = i - stack.peek() - 1;
+                int bounded_height = Math.min(height[i], height[stack.peek()]) - height[top];
+                ans += distance * bounded_height;
+            }
+            stack.push(height[i++]);
+        }
+        return ans;
+    }
+
+    /**
+     * 13.罗马数字转整数
+     * 思路：把hashmap换为switch会快很多
+     * @param s
+     * @return
+     */
+    public int romanToInt(String s) {
+        Map<Character, Integer> symbolValues = new HashMap<Character, Integer>() {{
+            put('I', 1);
+            put('V', 5);
+            put('X', 10);
+            put('L', 50);
+            put('C', 100);
+            put('D', 500);
+            put('M', 1000);
+        }};
+
+        int ans = 0;
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            int cur = symbolValues.get(s.charAt(i));
+            if (i < len - 1 && symbolValues.get(s.charAt(i + 1)) > cur) {
+                ans -= cur;
+            } else {
+                ans += cur;
+            }
+        }
+        return ans;
+    }
+
+    /**
+     * 22.括号生成
+     * 思路： 左括号总要小于等于有括号
+     * @param n
+     * @return
+     */
+    List<String> res = new ArrayList<>();
+
+    public List<String> generateParenthesis(int n) {
+        if (n <= 0)
+            return res;
+        getParenthesis("", n, n);
+        return res;
+    }
+
+    private void getParenthesis(String s, int left, int right) {
+        if (left == 0 && right == 0) {
+            res.add(s);
+            return;
+        }
+        if (left == right) {
+            getParenthesis(s + "(", left - 1, right);
+        } else if (left < right) {
+            if (left > 0)
+                getParenthesis(s + "(", left - 1, right);
+            getParenthesis(s + ")", left, right - 1);
+        }
+    }
+
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+//        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+//        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+//        Solution1 solution1 = new Solution1();
+//        solution1.addTwoNumbers(l1, l2);
+
         Solution1 solution1 = new Solution1();
-        solution1.addTwoNumbers(l1, l2);
+        int[] height = new int[] {0,1,0,2,1,0,1,3,2,1,2,1};
+        solution1.trap(height);
     }
 }
