@@ -361,6 +361,117 @@ public class Solution1 {
         }
     }
 
+    /**
+     * 10. 正则表达式匹配
+     * @param s
+     * @param p
+     * @return
+     */
+    public boolean isMatch(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+
+        boolean[][] f = new boolean[m + 1][n + 1];
+        f[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p.charAt(j - 1) == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (matches(s, p, i, j - 1)) {
+                        f[i][j] = f[i][j] || f[i - 1][j];
+                    }
+                } else {
+                    if (matches(s, p, i, j)) {
+                        f[i][j] = f[i - 1][j - 1];
+                    }
+                }
+            }
+        }
+        return f[m][n];
+    }
+
+    public boolean matches(String s, String p, int i, int j) {
+        if (i == 0) {
+            return false;
+        }
+        if (p.charAt(j - 1) == '.') {
+            return true;
+        }
+        return s.charAt(i - 1) == p.charAt(j - 1);
+    }
+
+    /**
+     * 20.有效的括号
+     * @param s
+     * @return
+     */
+    public boolean isValid(String s) {
+        int n = s.length();
+        if (n % 2 == 1) {
+            return false;
+        }
+
+        Map<Character, Character> pairs = new HashMap<Character, Character>() {{
+            put(')', '(');
+            put(']', '[');
+            put('}', '{');
+        }};
+        Deque<Character> stack = new LinkedList<Character>();
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if (pairs.containsKey(ch)) {
+                if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
+                    return false;
+                }
+                stack.pop();
+            } else {
+                stack.push(ch);
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    /**
+     * 判断字符是否唯一
+     * @param astr
+     * @return
+     */
+    public boolean isUnique(String astr) {
+        if (astr.length() <= 1)
+            return true;
+        Set<Character> set = new HashSet<>();
+        int len = astr.length();
+        for (int i = 0; i < len; i++) {
+            if (!set.add(astr.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 判断字符是否唯一-位运算解法
+     * @param astr
+     * @return
+     */
+    public boolean isUnique2(String astr) {
+        int aa = 0;
+        int cc = 1;
+        for (int i = 0; i < astr.length(); i++) {
+            char t = astr.charAt(i);
+            int offset = t - 'a';
+
+            int bb = cc << offset;
+            if ((aa & bb) != 0) {
+                return false;
+            }
+            aa |= bb;
+
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
 //        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
 //        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
@@ -368,7 +479,6 @@ public class Solution1 {
 //        solution1.addTwoNumbers(l1, l2);
 
         Solution1 solution1 = new Solution1();
-        int[] height = new int[] {0,1,0,2,1,0,1,3,2,1,2,1};
-        solution1.trap(height);
+        solution1.isValid("()");
     }
 }
