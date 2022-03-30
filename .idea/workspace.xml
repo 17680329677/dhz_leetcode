@@ -11,7 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a864a4a9-7840-4b87-8cf0-d9e5cb13f1a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/hot/Solution1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hot/Solution1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hot/Solution2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hot/Solution2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +161,7 @@
       <workItem from="1647225830107" duration="27112000" />
       <workItem from="1648449138655" duration="21000" />
       <workItem from="1648474336070" duration="68000" />
-      <workItem from="1648474423765" duration="4997000" />
+      <workItem from="1648474423765" duration="6248000" />
     </task>
     <servers />
   </component>
