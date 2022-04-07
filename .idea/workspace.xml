@@ -63,22 +63,9 @@
       <recent name="leetcode.dp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Solution1">
+  <component name="RunManager" selected="Application.Solution2">
     <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kind.sort.learn.InsertSort" />
-      <module name="dhz_leetcode" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kind.sort.learn.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShellSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kind.sort.learn.ShellSort" />
       <module name="dhz_leetcode" />
       <extension name="coverage">
         <pattern>
@@ -129,13 +116,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Solution2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hot.Solution2" />
+      <module name="dhz_leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution2" />
         <item itemvalue="Application.Solution1" />
         <item itemvalue="Application.InsertSort" />
         <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution" />
-        <item itemvalue="Application.ShellSort" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +161,7 @@
       <workItem from="1647225830107" duration="27112000" />
       <workItem from="1648449138655" duration="21000" />
       <workItem from="1648474336070" duration="68000" />
-      <workItem from="1648474423765" duration="6248000" />
+      <workItem from="1648474423765" duration="18871000" />
     </task>
     <servers />
   </component>
@@ -206,6 +206,11 @@
           <url>file://$PROJECT_DIR$/src/kind/dfs/Solution.java</url>
           <line>824</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hot/Solution2.java</url>
+          <line>566</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
