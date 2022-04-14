@@ -220,7 +220,7 @@ public class Solution3 {
     }
 
     /**
-     * K个一组翻转链表
+     * 25.K个一组翻转链表
      * @param head
      * @param k
      * @return
@@ -263,6 +263,100 @@ public class Solution3 {
             p = nex;
         }
         return new ListNode[]{tail, head};
+    }
+
+    /**
+     * 41.缺失的第一个正数
+     * 思路一：形成hash的替代品
+     * 1. 遍历一遍，将数组中小于0的数字置为N+1
+     * 2. 遍历上述1.中形成的数组，将<=N的元素对应位置上的数增加负号
+     * 3. 遍历第三次，返回第一个正数的下标 + 1（若没有正数，则返回N + 1）
+     * @param nums
+     * @return
+     */
+    public int firstMissingPositive(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] <= 0) {
+                nums[i] = n + 1;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            int num = Math.abs(nums[i]);
+            if (num <= n) {
+                nums[num - 1] = -Math.abs(nums[num - 1]);
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0)
+                return i + 1;
+        }
+        return n + 1;
+    }
+
+    /**
+     * 41.缺失的第一个正数
+     * 思路二：置换法
+     * 1.遍历第一遍数组，若nums[i] == x - 1 属于【1-N】，则将nums[i] 与 nums[x - 1]交换位置
+     * 2.遍历第二次数组，若nums[i] != i + 1, 则返回 i+1
+     * @param nums
+     * @return
+     */
+    public int firstMissingPositive2(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+                int temp = nums[nums[i] - 1];
+                nums[nums[i] - 1] = nums[i];
+                nums[i] = temp;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i + 1)
+                return i + 1;
+        }
+        return n + 1;
+    }
+
+    /**
+     * 编辑距离
+     * 思路：动态规划
+     * 1. 假设从后向前比较
+     * 2. 对于最后一个字符不一样的情况 可以进行插入、置换、删除操作共三种情况
+     * @param word1
+     * @param word2
+     * @return
+     */
+    public int minDistance(String word1, String word2) {
+        int n = word1.length();
+        int m = word2.length();
+        if (n * m == 0) {
+            return n + m;
+        }
+        int[][] dp = new int[n + 1][m + 1];
+        // 边界状态初始化
+        for (int i = 0; i < n + 1; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 0; j < m + 1; j++) {
+            dp[0][j] = j;
+        }
+        // 计算所有dp值
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < m + 1; j++) {
+                int left = dp[i - 1][j] + 1;
+                int down = dp[i][j - 1] + 1;
+                int left_down = dp[i - 1][j - 1];
+                if (word1.charAt(i - 1) != word2.charAt(j - 1)) {
+                    left_down += 1;
+                }
+                dp[i][j] = Math.min(left, Math.min(down, left_down));
+            }
+        }
+        return dp[n][m];
     }
 
     public static void main(String[] args) {
