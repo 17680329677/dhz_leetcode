@@ -1,5 +1,6 @@
 package hot;
 
+import struct.ListNode;
 import sun.jvm.hotspot.tools.JStack;
 
 import java.util.*;
@@ -186,6 +187,82 @@ public class Solution3 {
             ans.append(row);
         }
         return ans.toString();
+    }
+
+    /**
+     * 54.螺旋矩阵输出
+     * @param matrix
+     * @return
+     */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> order = new ArrayList<>();
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return order;
+        }
+        int rows = matrix.length, cols = matrix[0].length;
+        int total = rows * cols;
+        int row = 0, col = 0;
+        boolean[][] visited = new boolean[rows][cols];
+        int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int directionIndex = 0;
+        for (int i = 0; i < total; i++) {
+            order.add(matrix[row][col]);
+            visited[row][col] = true;
+            int nextRow = row + directions[directionIndex][0];
+            int nextCol = col + directions[directionIndex][1];
+            if (nextRow < 0 || nextRow >= rows || nextCol < 0 || nextCol >= cols || visited[nextRow][nextCol]) {
+                directionIndex = (directionIndex + 1) % 4;
+            }
+            row += directions[directionIndex][0];
+            col += directions[directionIndex][1];
+        }
+        return order;
+    }
+
+    /**
+     * K个一组翻转链表
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode hair = new ListNode(0);
+        hair.next = head;
+        ListNode pre = hair;
+
+        while (head != null) {
+            ListNode tail = pre;
+            // 查看剩余部分长度是否大于等于 k
+            for (int i = 0; i < k; ++i) {
+                tail = tail.next;
+                if (tail == null) {
+                    return hair.next;
+                }
+            }
+            ListNode nex = tail.next;
+            ListNode[] reverse = myReverse(head, tail);
+            head = reverse[0];
+            tail = reverse[1];
+            // 把子链表重新接回原链表
+            pre.next = head;
+            tail.next = nex;
+            pre = tail;
+            head = tail.next;
+        }
+
+        return hair.next;
+    }
+
+    public ListNode[] myReverse(ListNode head, ListNode tail) {
+        ListNode prev = tail.next;
+        ListNode p = head;
+        while (prev != tail) {
+            ListNode nex = p.next;
+            p.next = prev;
+            prev = p;
+            p = nex;
+        }
+        return new ListNode[]{tail, head};
     }
 
     public static void main(String[] args) {
